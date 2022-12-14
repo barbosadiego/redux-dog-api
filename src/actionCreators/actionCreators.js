@@ -11,7 +11,7 @@ export const getDog = () => {
     fetch('https://api.thedogapi.com/v1/breeds')
       .then((res) => res.json())
       .then((json) => dispatch(getDogSuccess(json)))
-      .catch((error) => dispatch(getDogFail(error)));
+      .catch((error) => dispatch(getDogFail(error.message)));
   };
 };
 
