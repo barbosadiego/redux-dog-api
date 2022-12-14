@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getDog } from '../actionCreators/actionCreators';
 
@@ -7,10 +7,15 @@ const Card = () => {
   const dispatch = useDispatch();
   console.log(store);
 
+  useEffect(() => {
+    dispatch(getDog());
+  }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(getDog());
   };
+
+  if (store.dogBreeds.length === 0) return <h1>Loading data...</h1>;
 
   return (
     <>
@@ -18,8 +23,9 @@ const Card = () => {
       <form>
         <label htmlFor="dogs">Choose a dog:</label>
         <select name="dogs" id="dogs">
-          <option value="ex1">ex1</option>
-          <option value="ex2">ex2</option>
+          {store.dogBreeds.map((item) => (
+            <option key={item.id}>{item.name}</option>
+          ))}
         </select>
         <div>
           <button type="submit" onClick={handleSubmit}>
