@@ -24,7 +24,7 @@ const getDogStarted = () => {
 const getDogSuccess = (data) => {
   return {
     type: GET_DOG_SUCCESS,
-    payload: { ...data },
+    payload: data,
   };
 };
 
