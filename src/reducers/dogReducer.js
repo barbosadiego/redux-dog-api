@@ -25,7 +25,7 @@ const dogReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         error: null,
-        dogBreeds: [...state.dogBreeds, payload],
+        dogBreeds: payload,
       };
 
     case GET_DOG_FAIL:
