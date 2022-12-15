@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/redux-dog-api/static/js/main.ba406ddf.js",
+    "index.html": "/redux-dog-api/index.html",
+    "main.ba406ddf.js.map": "/redux-dog-api/static/js/main.ba406ddf.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.ba406ddf.js"
+  ]
+}
