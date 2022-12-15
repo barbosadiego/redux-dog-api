@@ -5,10 +5,9 @@ import DogImage from './DogImage';
 
 const Card = () => {
   const store = useSelector((store) => store);
-  const [dogImage, setDogImage] = useState('');
+  const [index, setIndex] = useState(0);
   const dispatch = useDispatch();
   const refSelect = useRef();
-  console.log(store);
 
   useEffect(() => {
     dispatch(getDog());
@@ -17,9 +16,7 @@ const Card = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const itemSelected = refSelect.current;
-    const selectedValue =
-      itemSelected.options[itemSelected.selectedIndex].value;
-    setDogImage(selectedValue.replace('_', ''));
+    setIndex(itemSelected.selectedIndex);
   };
 
   if (store.dogBreeds.length === 0) return <h1>Loading data...</h1>;
@@ -42,7 +39,7 @@ const Card = () => {
           </button>
         </div>
       </form>
-      {dogImage && <DogImage img={dogImage} />}
+      <DogImage index={index} />
     </>
   );
 };
