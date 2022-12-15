@@ -21,12 +21,13 @@ const DogImage = ({ index }) => {
 export default DogImage;
 
 const StyledImage = styled.div`
-  width: 500px;
-  height: 500px;
+  max-width: 500px;
 
   img {
     max-width: 100%;
     display: block;
     object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
   }
 `;
