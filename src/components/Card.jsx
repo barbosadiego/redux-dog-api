@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getDog } from '../actionCreators/actionCreators';
 import DogImage from './DogImage';
 import styled from 'styled-components';
+import Loading from './Loading';
 
 const Card = () => {
   const store = useSelector((store) => store);
@@ -20,7 +21,7 @@ const Card = () => {
     setIndex(itemSelected.selectedIndex);
   };
 
-  if (store.dogBreeds.length === 0) return <h1>Loading data...</h1>;
+  if (store.dogBreeds.length === 0) return <Loading />;
 
   return (
     <StyledCard>
@@ -50,12 +51,15 @@ export default Card;
 const StyledCard = styled.section`
   box-sizing: border-box;
   width: 100%;
-  height: 100%;
+  height: 101vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
   padding: 30px;
+  @media (max-width: 768px) {
+    padding: 0 30px 30px 30px;
+  }
 
   * {
     font-family: 'Fira Sans', sans-serif;
@@ -63,6 +67,7 @@ const StyledCard = styled.section`
 
   h1 {
     font-size: clamp(2.5rem, 10vw, 5rem);
+    margin-top: 1rem;
     margin-bottom: 0;
     text-transform: uppercase;
     color: grey;
